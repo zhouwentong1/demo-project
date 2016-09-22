@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <title>js</title>
+</head>
+<body>
+    <script>
+        function foo() {
+            var x = 1;
+            x = x + 1;
+        }
+        foo();
+        x = x + 2; // ReferenceError! 无法在函数体外引用变量x
+        alert(x)
+    </script>
+</body>
+</html>

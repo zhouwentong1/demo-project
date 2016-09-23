@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="GBK">
+    <meta charset="UTF-8">
     <title>js</title>
 </head>
 <body>
     <script>
-        function foo() {
-            var x = 1;
-            x = x + 1;
-        }
-        foo();
-        x = x + 2; // ReferenceError! �޷��ں����������ñ���x
-        alert(x)
+        // 定义常量的方式。
+        const PI = 3.14;
+        // 通常喜欢绑定命名空间，将函数和变量绑定到当前命名空间上。这样就不会发生模块之间的冲突了
+        //
+//        var MYAPP = MYAPP || {};
+//        var MYAPP = {};
+        window.foo2();
+//        MYAPP.foo1();
+//        MYAPP.foo2();
+//        function foo() {
+//            x = 1;
+//            x = x + 1;
+//        }
+//        foo1();
+//      js 中，默认的全局变量是 window，
+//window.foo1();
+//        x = x + 2; // ReferenceError! 无法在函数体外引用变量x
+//        alert(x)
+
+//        MYAPP.foo1 = function () {
+//            // 这样会报错，y 没有找到，但是廖雪峰的书上面写的有问题，他说可以访问。
+//            // 在 js 中声明变量最好在方法一开头就声明。类似于 c 语言
+//            var x = 1;
+//            var y = 10;
+//            x = x + y;
+//            alert(x);
+//        };
+        function foo2() {
+            // var 的作用域是方法级别的，所以在这个方法里面会发生 i 串域的现象
+            // 在 es6 中定义了 let，这样的话，就可以防止这种现象了 。
+            for (let i = 0; i < 10; i++) {
+                console.log(i)
+            }
+            console.log(PI);
+        };
     </script>
 </body>
 </html>

@@ -11,6 +11,19 @@
         window.onload = function () {
             var result = add(1, 2, Math.abs);
             console.log(result);
+            var f = function (x) {
+                return x * x;
+            };
+            // map reduce
+            var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 88];
+            var map = arr.map(f, arr);
+            console.log(map);
+            var reduce = arr.reduce(function (x, y) {
+                return x + y;
+            });
+            132.. toString()
+            console.log(reduce);
+
         };
         //    demo();
         //    function demo() {

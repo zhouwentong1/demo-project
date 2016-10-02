@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+    <script>
+        window.onload = function () {
+            function wrapElements(a) {
+                var result = [], i, n;
+                for (i = 0, n = a.length; i < n; i++) {
+                    result[i] = function(){
+                        return a[i];
+                    }
+                }
+                return result;
+
+            }
+
+            var wrapped = wrapElements([10, 20, 30, 40, 50]);
+            var f = wrapped[0];
+            console.log(f());
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

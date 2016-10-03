@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包函数</title>
+    <script>
+        window.onload = function () {
+            function f1() {
+                var res = 1999;
+                function f2() {
+                    console.log(res);
+                }
+                return f2;
+            }
+
+            // 通过这种方式就可以访问到函数内部的数据了。
+            // 因为 f2 是 f1 的内部函数，也就是说 f2 可以获知 f1 定义的所有变量。
+            // 函数 f1 的返回值是 f2，这样就可以将 f1 的内部细节暴露出来。
+            var result = f1();
+            result();
+
+            // 通过闭包将状态保留了下来。不解
+            function createIncrementor(start) {
+                return function () {
+                    return start++;
+                };
+            }
+
+            var inc = createIncrementor(5);
+            console.log(inc());
+            console.log(inc());
+            console.log(inc());
+            console.log(inc());
+
+            //立即调用的函数表达式，可以避免污染全局变量，只要不是以 function 开头的都行
+            // 这种函数无需调用，直接就执行了。
+            (function() {
+                console.log("hellp");
+            }());
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

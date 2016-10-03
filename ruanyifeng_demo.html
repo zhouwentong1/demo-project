@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>阮一峰</title>
     <script>
-//        'use strict';
+        //        'use strict';
         window.onload = function () {
-            console.log(1 === 1.0);
-            console.log(1.0 + 2.0 === 3.0);
-            console.log(0.1 + 0.2 === 0.3);
-            console.log(NaN === NaN);
-            console.log(isNaN(NaN));
+//            console.log(1 === 1.0);
+//            console.log(1.0 + 2.0 === 3.0);
+//            console.log(0.1 + 0.2 === 0.3);
+//            console.log(NaN === NaN);
+//            console.log(isNaN(NaN));
 
             // 一种特别奇怪的声明函数的方法。
 //            var add = new Function(
@@ -41,7 +41,7 @@
                 return op;
             }
 
-            a(add)(1, 1);
+//            a(add)(1, 1);
             // 2
 
             // 由于函数在 js 中是第一等公民，所以会被提到最顶部，这就导致了可以在使用之后声明的假象了。
@@ -60,17 +60,18 @@
 //                alert("f1");
 //            }
 //            if (false) {
-                function f2(a, b) {
-                    // aaa
-                    // bbb
-                    alert('f2');
-                }
+//            function f2(a, b) {
+//                // aaa
+//                // bbb
+//                alert('f2');
+//            }
+
 //            }
             // 通过 .name 这个属性可以直接获得方法的名字。
-            console.log(f2.name);
-            // 通过 .length 这个属性可以获得方法的参数数量。
-            console.log(f2.length);
-            console.log(f2.toString);
+//            console.log(f2.name);
+//            // 通过 .length 这个属性可以获得方法的参数数量。
+//            console.log(f2.length);
+//            console.log(f2.toString);
 
             // 除了在函数之内声明，其他任何地方声明的都算是全局变量。
             // var 只有在 function 之内声明才算。
@@ -86,19 +87,35 @@
                 }
                 alert(x);
             }
+
 //            alert(x);
 
             var a1 = 1;
             var x = function () {
                 console.log(a1);
             };
+
             function f4() {
                 var a1 = 2;
-            // 函数也是一个变量，它的作用域就是其声明的作用域，所以是 1
+                // 函数也是一个变量，它的作用域就是其声明的作用域，所以是 1
                 x(); // 打印 1
             }
 
-            f4();
+//            f4();
+            f5();
+            f5();
+            function f5() {
+                for (var i = 0; i < 4; i++) {
+                    console.log("first");
+                    console.log(i);
+                }
+
+                for (var i = 4; i > 0; i--) {
+                    console.log("second");
+                    console.log(i);
+                }
+            }
+
 
         }
     </script>
